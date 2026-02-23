@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Charu ❤️</title>
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+.box{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  width:90%;
+  max-width:450px;
+  position:relative;
+}
+
+h2{
+  color:#ff4b5c;
+}
+
+button{
+  padding:12px 25px;
+  margin:15px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.yes{
+  background:#ff4b5c;
+  color:white;
+}
+
+.no{
+  background:#444;
+  color:white;
+  position:absolute;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+.final{
+  font-size:20px;
+  color:#ff4b5c;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2 id="question">Will You Be My Forever, Charu? ❤️</h2>
+  
+  <button class="yes" onclick="nextQuestion()">Yes 💖</button>
+  <button class="no" id="noBtn">No 😢</button>
+
+  <div id="finalMessage" class="final" style="display:none;">
+    Charu ❤️  
+    Mehul tumse bohot pyaar karta hai 💕  
+    Thank you for being mine forever 😍💍  
+  </div>
+</div>
+
+<script>
+
+let questions = [
+  "Will You Be My Forever, Charu? ❤️",
+  "Charu, kya tum Mehul ka saath hamesha dogi? 💕",
+  "Kya tum mere saath poori duniya ghoomogi? 🌍",
+  "Kya tum mujhe hamesha pyaar karogi? ❤️"
+];
+
+let current = 0;
+
+function nextQuestion(){
+  current++;
+  if(current < questions.length){
+    document.getElementById("question").innerText = questions[current];
+  } else {
+    document.getElementById("question").style.display = "none";
+    document.querySelector(".yes").style.display = "none";
+    document.getElementById("noBtn").style.display = "none";
+    document.getElementById("finalMessage").style.display = "block";
+  }
+}
+
+let noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function(){
+  let x = Math.random() * (window.innerWidth - 150);
+  let y = Math.random() * (window.innerHeight - 150);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+</script>
+
+</body>
+</html>
